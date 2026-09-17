@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rushlo.com/sitemap.xml
