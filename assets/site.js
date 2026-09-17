@@ -1,0 +1,1 @@
+const b=document.querySelector('.menu'),n=document.querySelector('.links');if(b)b.onclick=()=>n.classList.toggle('open');const f=document.querySelector('#contact');if(f)f.onsubmit=e=>{e.preventDefault();document.querySelector('#status').textContent='Preview mode — secure delivery will be connected before launch.'};
