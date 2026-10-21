@@ -1,33 +1,88 @@
-const b=document.querySelector('.menu'),n=document.querySelector('.links');if(b&&n){const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false')};b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o))});n.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})}
-
-const f=document.querySelector('#contact');
-let submitting=false;
-if(f)f.addEventListener('submit',async e=>{
-  e.preventDefault();
-  if(submitting)return;
-  const s=document.querySelector('#status'),btn=f.querySelector('button[type="submit"]'),trap=f.querySelector('input[name="website"]');
-  if(trap&&trap.value){f.reset();if(s){s.textContent='Thanks — your message has been received.';s.setAttribute('role','status')}return}
-  submitting=true;
-  if(btn){btn.disabled=true;btn.textContent='Sending…'}
-  if(s){s.textContent='Sending your message…';s.setAttribute('role','status')}
-  try{
-    const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
-    if(r.ok){trackEvent('generate_lead',{form_id:'contact',lead_source:'website_inquiry'});f.reset();if(s)s.textContent='Thanks — your message has been sent. JBR will respond within one business day.'}
-    else{if(s)s.textContent='We couldn’t send your message. Please try again in a moment.'}
-  }catch(_){if(s)s.textContent='We couldn’t send your message. Please check your connection and try again.'}
-  finally{submitting=false;if(btn){btn.disabled=false;btn.textContent='Send Message →'}}
-});
-
-// Measure intent separately from successful inquiries. Never send form values to GA.
-function trackEvent(name,params){
-  try{if(typeof window.gtag==='function')window.gtag('event',name,params)}catch(_){}
+const menuButton = document.querySelector('.menu');
+const navigation = document.querySelector('.links');
+if (menuButton && navigation) {
+  const closeMenu = () => {
+    navigation.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  };
+  menuButton.addEventListener('click', () => {
+    const open = navigation.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+  navigation.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
 }
-document.addEventListener('click',e=>{
-  const link=e.target.closest('a[href]');
-  if(!link)return;
-  const destination=new URL(link.href,window.location.href);
-  if(destination.origin===window.location.origin&&destination.pathname==='/contact.html'){
-    trackEvent('contact_click',{link_location:link.closest('main')?'main':link.closest('header')?'header':'footer',source_path:window.location.pathname});
+
+// Track production intent and confirmed inquiries, without any visitor-entered values.
+function trackEvent(name, params) {
+  try {
+    if (['rushlo.com', 'www.rushlo.com'].includes(window.location.hostname) && typeof window.gtag === 'function') {
+      window.gtag('event', name, params);
+    }
+  } catch (_) {
+    // Analytics must never prevent an inquiry from sending.
+  }
+}
+
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link) return;
+  const destination = new URL(link.href, window.location.href);
+  if (destination.origin !== window.location.origin) return;
+  if (destination.pathname === '/contact.html' || link.hasAttribute('data-inquiry-cta')) {
+    trackEvent('contact_click', {
+      link_location: link.closest('main') ? 'main' : link.closest('header') ? 'header' : 'footer',
+      source_path: window.location.pathname,
+      destination_path: destination.pathname
+    });
   }
 });
-if(f)f.addEventListener('input',()=>trackEvent('inquiry_start',{form_id:'contact'}),{once:true});
+
+const inquiryForm = document.querySelector('#contact');
+if (inquiryForm) {
+  const service = inquiryForm.dataset.service || 'general';
+  let submitting = false;
+  inquiryForm.addEventListener('input', () => {
+    trackEvent('inquiry_start', { form_id: 'contact', service });
+  }, { once: true });
+  inquiryForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (submitting || !inquiryForm.reportValidity()) return;
+    const status = inquiryForm.querySelector('#status');
+    const button = inquiryForm.querySelector('button[type="submit"]');
+    const trap = inquiryForm.querySelector('input[name="website"]');
+    const buttonLabel = button ? button.textContent : '';
+    if (trap && trap.value) {
+      inquiryForm.reset();
+      if (status) status.textContent = 'Thanks — your message has been received.';
+      return;
+    }
+    submitting = true;
+    if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+    if (status) status.textContent = 'Sending your message…';
+    try {
+      const payload = new FormData(inquiryForm);
+      payload.set('inquiry_page', window.location.pathname);
+      payload.set('service', service);
+      const response = await fetch(inquiryForm.action, {
+        method: 'POST', body: payload, headers: { Accept: 'application/json' }
+      });
+      if (response.ok) {
+        trackEvent('generate_lead', { form_id: 'contact', service, lead_source: 'website_inquiry' });
+        inquiryForm.reset();
+        if (status) status.textContent = 'Thanks — your inquiry has been sent. Josh will respond within one business day.';
+      } else {
+        if (status) status.textContent = 'We couldn’t send your message. Please try again in a moment. Your details are still in the form.';
+      }
+    } catch (_) {
+      if (status) status.textContent = 'We couldn’t send your message. Please check your connection and try again. Your details are still in the form.';
+    } finally {
+      submitting = false;
+      if (button) { button.disabled = false; button.textContent = buttonLabel; }
+    }
+  });
+}
