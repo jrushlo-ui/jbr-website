@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
   "description": "Verified public Horse Show Daily equestrian social posts. Metrics remain null unless measured from a public source.",
-  "updated_at": "2026-11-02T21:05:00Z",
-  "last_successful_discovery_at": "2026-11-02T21:05:00Z",
+  "updated_at": "2026-11-02T21:20:00Z",
+  "last_successful_discovery_at": "2026-11-02T21:20:00Z",
   "source_status": {
     "youtube": "ok",
     "instagram": "not_connected",
@@ -26,7 +26,7 @@
       "discipline": "Hunter / Jumper",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -52,7 +52,7 @@
       "discipline": "Hunter / Jumper",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -78,7 +78,7 @@
       "discipline": "Cow Horse",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -104,7 +104,7 @@
       "discipline": "Hunter / Jumper",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -130,7 +130,7 @@
       "discipline": "Cow Horse",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -156,7 +156,7 @@
       "discipline": "Ranch Riding",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -182,7 +182,7 @@
       "discipline": "Hunter / Jumper",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -208,7 +208,7 @@
       "discipline": "Cow Horse",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
@@ -234,7 +234,33 @@
       "discipline": "Hunter / Jumper",
       "source_verified": true,
       "verification_source": "Official AQHA YouTube Atom feed",
-      "verified_at": "2026-11-02T21:05:00Z",
+      "verified_at": "2026-11-02T21:20:00Z",
+      "media_type": "video",
+      "engagement": {
+        "likes": null,
+        "comments": null,
+        "shares": null,
+        "reposts": null,
+        "views": null,
+        "measured_at": null
+      }
+    },
+    {
+      "id": "aqha-select-working-hunter-under-saddle-2026",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/watch?v=zc3lBdex8Qg",
+      "embed_url": "https://www.youtube-nocookie.com/embed/zc3lBdex8Qg",
+      "thumbnail_url": "https://i.ytimg.com/vi/zc3lBdex8Qg/hqdefault.jpg",
+      "author": "Official AQHA",
+      "author_url": "https://www.youtube.com/@OfficialAQHA",
+      "title": "2026 AQHA Select Working Hunter Under Saddle World Champion",
+      "caption": "Official championship video from the American Quarter Horse Association.",
+      "published_at": "2026-11-01T19:02:34Z",
+      "event_slug": "aqha-world-2026",
+      "discipline": "Hunter / Jumper",
+      "source_verified": true,
+      "verification_source": "Official AQHA YouTube Atom feed",
+      "verified_at": "2026-11-02T21:20:00Z",
       "media_type": "video",
       "engagement": {
         "likes": null,
