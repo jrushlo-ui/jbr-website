@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E6BVG7FSB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  if (['rushlo.com', 'www.rushlo.com'].includes(window.location.hostname)) {
+    gtag('js', new Date());
+    gtag('config', 'G-E6BVG7FSB2');
+  }
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#031d31">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>How to Run a Weekly Sales Pipeline Review With AI | JBR</title>
+<meta name="description" content="Use AI to spot stalled quotes, missing next steps, and deals that need coaching. A three-quote example and a reusable prompt show how to run the weekly review.">
+<link rel="canonical" href="https://rushlo.com/weekly-sales-pipeline-review-with-ai.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JBR">
+<meta property="og:title" content="How to Run a Weekly Sales Pipeline Review With AI | JBR">
+<meta property="og:description" content="Use AI to spot stalled quotes, missing next steps, and deals that need coaching. A three-quote example and a reusable prompt show how to run the weekly review.">
+<meta property="og:url" content="https://rushlo.com/weekly-sales-pipeline-review-with-ai.html">
+<meta property="og:image" content="https://rushlo.com/assets/images/meeting-1600.webp">
+<meta property="og:image:alt" content="Two people review handwritten notes at a table with open laptops">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/site.css?v=20261021-audit">
+<style>
+.pipeline-quotes {width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1rem}
+.pipeline-quotes caption {text-align:left;font-weight:700;padding-bottom:.5rem}
+.pipeline-quotes th,.pipeline-quotes td {border-bottom:1px solid var(--line);text-align:left;vertical-align:top;padding:.75rem .75rem .75rem 0}
+.pipeline-quotes thead th {border-bottom:2px solid var(--navy)}
+.pipeline-quotes tbody th {width:30%}
+.pipeline-quotes tbody th span {display:block;font-weight:400}
+.pipeline-prompt {border-left:3px solid var(--navy);margin:1.25rem 0;padding-left:1rem}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Run a Weekly Sales Pipeline Review With AI",
+      "description": "Use AI to spot stalled quotes, missing next steps, and deals that need coaching. A three-quote example and a reusable prompt show how to run the weekly review.",
+      "image": [
+        "https://rushlo.com/assets/images/meeting-1600.webp"
+      ],
+      "datePublished": "2026-11-25",
+      "dateModified": "2026-11-25",
+      "author": {
+        "@type": "Person",
+        "@id": "https://rushlo.com/about.html#josh-rushlo",
+        "name": "Josh Rushlo",
+        "url": "https://rushlo.com/about.html#josh-rushlo"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://rushlo.com/#organization",
+        "name": "JBR",
+        "url": "https://rushlo.com/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://rushlo.com/weekly-sales-pipeline-review-with-ai.html"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Insights",
+          "item": "https://rushlo.com/insights.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How to Run a Weekly Sales Pipeline Review With AI",
+          "item": "https://rushlo.com/weekly-sales-pipeline-review-with-ai.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script defer src="assets/site.js?v=20261021-audit"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="/" aria-label="JBR home">JBR</a><button class="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">☰</button><nav id="site-nav" class="links" aria-label="Primary navigation"><a href="/">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a class="active" aria-current="page" href="insights.html">Insights</a><a class="btn" href="contact.html" data-inquiry-cta>Talk With Josh</a></nav></div></header>
+<main id="main">
+<section class="section white">
+<article class="wrap article">
+<div class="eyebrow">Insights / AI &amp; Sales Leadership</div>
+<h1>How to Run a Weekly Sales Pipeline Review With AI</h1>
+<div class="article-meta article-byline">By <a href="about.html#josh-rushlo">Josh Rushlo</a> · JBR Insights · AI &amp; Sales Leadership · <time datetime="2026-11-25">November 25, 2026</time></div>
+<figure class="article-figure">
+  <img fetchpriority="high" srcset="assets/images/meeting-800.webp 800w, assets/images/meeting-1600.webp 1600w" sizes="(max-width: 936px) calc(100vw - 36px), 900px" src="assets/images/meeting-1600.webp" alt="Two people review handwritten notes at a table with open laptops" width="1600" height="800" decoding="async">
+</figure>
+
+<p>A $24,800 pump quote shows up on your Monday pipeline report with a fresh update. Your rep emailed another copy on Friday. The last word from the buyer was three weeks ago. Would you count on that order landing this month?</p>
+<p>I’d use AI before the weekly sales pipeline review to catch exactly that difference. Give it the open quotes and ask which ones need a conversation. Check each flag against the rep’s notes. Then you can walk into the meeting ready to ask about the customer instead of asking everyone to read their updates aloud.</p>
+
+<h2>Give AI both sides of the conversation</h2>
+<p>For each open quote, pull the quote ID, rep, amount, date sent, last buyer response, last rep activity, and next action with its owner and due date. Include the buyer’s latest note and anything the rep knows about who approves the order. To spot slipping deals, include the close-date history or compare saved weekly exports. Today’s close date alone can’t tell you how often it moved.</p>
+<p>Use a tool your company approves for sales data. Quote IDs and rep initials work fine in place of names. Leave out contact details and share deal values only if your company allows it.</p>
+
+<h2 id="worked-example">A worked example from a Monday pipeline review</h2>
+<p>Here are three fictional quotes from a distributor’s November 16 review. For these products, the manager looks into a quote after 14 calendar days of buyer silence unless the buyer has agreed to a later check-in. A scheduled plant shutdown could justify a much longer wait.</p>
+<table class="pipeline-quotes">
+  <caption>Open quotes on November 16, 2026</caption>
+  <thead><tr><th scope="col">Quote and rep</th><th scope="col">What the CRM shows</th></tr></thead>
+  <tbody>
+    <tr>
+      <th scope="row">Riverbend Packaging<span>Q-1842 · Elena · $24,800</span></th>
+      <td>The buyer acknowledged the pump quote on Oct 26. Elena resent it Nov 13 and set herself a Nov 17 call task. The quote is in November’s committed forecast.</td>
+    </tr>
+    <tr>
+      <th scope="row">Harbor Tool<span>Q-1851 · Marcus · $8,400</span></th>
+      <td>On Nov 13 the buyer asked whether a hose order could ship to two branches on different days. The next step says “follow up.” The task owner and due date are blank.</td>
+    </tr>
+    <tr>
+      <th scope="row">Pine Ridge Fabrication<span>Q-1860 · Priya · $32,000</span></th>
+      <td>Maintenance confirmed the bearing trial passed on Nov 12. Purchasing booked a Nov 18 call with Priya. The expected close moved from Oct 30 to Nov 6 to Nov 20. The purchase-order approver is unknown.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Riverbend has a stalled quote</h3>
+<p>AI flags 21 days since the buyer’s reply. Elena’s Friday email made the record look current. I’d ask her, “Who gave us November? Did maintenance give you a date they need that pump on site?” In this example, Elena confirms that November was her estimate. The manager keeps the quote open and takes the $24,800 out of the committed forecast. On Nov 17, Elena will ask maintenance whether the replacement is funded and when they need it.</p>
+
+<h3>Harbor is waiting on the seller</h3>
+<p>AI flags a missing next step. The buyer asked a specific question on Friday, so another “just checking in” email would be a lousy answer. I’d ask Marcus, “What do you need from shipping to get them two delivery dates?” Marcus agrees to confirm both dates with shipping and send the options to the buyer by noon Nov 17. He writes that commitment in place of “follow up.”</p>
+
+<h3>Pine Ridge needs coaching before the buyer call</h3>
+<p>Two slips and an unknown approver put this one on the coaching list. Priya already has a customer call booked. I’d ask her privately, “What has to happen between a successful trial and a purchase order?” On Nov 17, the manager and Priya rehearse the question she’ll take to purchasing the next day. “Now that the bearings passed the trial, who signs off on the change, and when do they review it?” Priya owns the Nov 18 call. She’ll record the buyer’s answer so the manager can judge whether Nov 20 still holds.</p>
+
+<h2 id="review-prompt">A prompt you can use with your own pipeline</h2>
+<p>Paste this above your export and replace the bracketed values with your review date and a silence threshold that fits your sales cycle.</p>
+<blockquote class="pipeline-prompt">
+  <p>Review these open quotes as of [review date]. Flag a stalled quote after [14] calendar days without a recorded buyer reply when there’s no future check-in agreed with the buyer. Count from the last buyer reply, or from the quote date if the record shows the buyer never replied. Keep rep activity separate.</p>
+  <p>Also flag a next step missing a specific action, owner, or due date. Flag a deal for coaching if the close date has slipped at least twice and the purchase approver is unknown. For each flagged quote, give me the quote ID, the flag, the dated note or missing field behind it, and one question to ask the rep. Mark gaps in the record “unknown.” Leave stage and forecast decisions to me.</p>
+</blockquote>
+
+<h2>Where to start next Monday</h2>
+<p>Give the review 20 minutes. Open with last week’s commitments, spend the middle on deals where the team needs a decision, and finish by having each rep say what they owe the customer and by when. Save the rehearsal for the one-on-one.</p>
+<p>Next Monday, start with what happened at those three accounts. When does Riverbend need the pump? Did the delivery dates work for both Harbor branches? Who can release Pine Ridge’s purchase order? The answers will tell you which deals still deserve the team’s time.</p>
+<p>If you want to run this review with the CRM your reps already use, see how I help teams through <a class="inline-link" href="ai-consulting.html#sales-leadership">AI consulting for sales leaders</a>.</p>
+<div class="author-note"><strong>About the author</strong><p><a class="inline-link" href="about.html#josh-rushlo">Josh Rushlo</a> is the founder of JBR. He brings more than 20 years of experience across sales leadership, wholesale and distribution, channel development, national accounts, account-team management, and commercial growth.</p></div>
+</article>
+</section>
+</main>
+<footer class="footer"><div class="wrap foot"><div class="foot-brand"><a class="brand" href="/">JBR</a><div>Strategic Advisory for Wholesale &amp; Distribution</div><small>Channels. People. Process. Execution.</small></div><div class="foot-right"><nav aria-label="Footer navigation"><a href="/">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="insights.html">Insights</a><a href="contact.html">Contact</a></nav><small>© 2026 JBR. All rights reserved.</small></div></div></footer>
+</body>
+</html>
