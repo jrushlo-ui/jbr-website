@@ -1,0 +1,17 @@
+# JBR weekday publisher
+
+The editorial team schedules releases in the private **JBR Editorial Queue** spreadsheet. Each row has a scheduled date, a status and the name of a finished HTML fragment in the private **Ready articles** folder. The article title in the sheet links to the manuscript. Josh can reschedule a row by changing its date, pause it with `Hold`, or make it eligible with `Ready`. The publisher writes `Published`, the actual Chicago publication date and the verified live link after release. Add new material through the same queue. An empty queue produces no release.
+
+This branch holds the publishing software. Only generated article pages, the Insights index and the sitemap are written to the live website branch. The private draft folder and spreadsheet are the source of editorial content.
+
+## Scheduled release
+
+The weekday job reads the current worksheet and manuscripts as the authorized account. It starts from a fresh checkout of production `main` and the `editorial-queue` branch. It keeps all private inputs in a temporary working directory.
+
+1. Read displayed cell values with the header row from the `Queue` tab, columns A through J. Keep all populated rows. Dates use `YYYY-MM-DD`. Reconcile any still-ready articles already confirmed live from an earlier attempt using the `jbr-editorial` page marker and canonical URL.
+2. Save the sheet values as a JSON array of rows. Run `python3 editorial/stage_sheet.py values.json editorial/queue.json` in the queue checkout. Put each needed Drive manuscript in `editorial/ready/` under its exact `<slug>.html` filename. Use the stored source bytes to preserve markup. Stage only approved material. An ambiguous or missing source for a selected item requires attention.
+3. Run `python3 editorial/publish.py --site /path/to/clean-main --dry-run`, then the same command without `--dry-run`. Production uses the Chicago calendar date. The `--date YYYY-MM-DD` override is for disposable test checkouts only. Both commands report the selected slugs and changed paths as JSON. A successful no-op needs no commit.
+4. Check the pages' canonical URLs, publication dates, headings, links, the topic cards in Insights, and sitemap entries. Recheck the selected worksheet rows and manuscript versions before releasing. Commit precisely the returned paths as one fast-forward update against the production head used for this run. If the head or the inputs changed, discard the local output and prepare again from current inputs. Never merge the queue branch or add private inputs to either Git branch.
+5. Once the deployment serves the pages, verify HTTP 200 and the expected canonical URL, title, publication marker, Insights links, and sitemap entries on rushlo.com. Match sheet rows by slug, then write `Published`, the marker's actual release date, and the verified live URL. Preserve all other cells and existing links. If another runner already committed the same release, reconcile the sheet from the public site. Resume failed deployment verification before attempting another release.
+
+The publisher selects the oldest due rows first and preserves worksheet order within a date. It counts publication markers on `main` to enforce a maximum of two new pages per local weekday across retries. It skips weekends and uses the actual release date for any carried-over row. A dated row becomes eligible on its date and remains eligible until published or placed on hold. The `Live URL` column describes a verified website release. Search engines determine their own crawl and indexing dates.
