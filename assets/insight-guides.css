@@ -1,0 +1,25 @@
+.article blockquote {
+  border-inline-start: 3px solid var(--navy);
+  margin: 1.5rem 0;
+  padding-inline-start: 1.25rem;
+}
+.article .guide-table {
+  margin: 1.5rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.guide-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.guide-table caption { font-weight: 700; text-align: left; padding-bottom: .5rem; }
+.guide-table th, .guide-table td {
+  border-bottom: 1px solid var(--line);
+  padding: .7rem .7rem .7rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.guide-table thead th { border-bottom: 2px solid var(--navy); }
+.guide-table.wide table { min-width: 32rem; }
+.guide-table:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
